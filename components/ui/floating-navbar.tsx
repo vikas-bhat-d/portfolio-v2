@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 import { PiHamburgerBold } from "react-icons/pi";
 import { FiX } from "react-icons/fi";
+import { AnimatePresence, motion } from "motion/react";
+
 
 export const FloatingNav = ({
   navItems,
@@ -28,6 +30,12 @@ export const FloatingNav = ({
     el?.scrollIntoView({ behavior: "smooth" });
     console.log("scrolled to : ", section);
   }, [pathname]);
+
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0.5, rotate: -90 },
+    visible: { opacity: 1, scale: 1, rotate: 0 },
+    exit: { opacity: 0, scale: 0.5, rotate: 90 },
+  };
 
   return (
     <>
@@ -68,7 +76,31 @@ export const FloatingNav = ({
         className="fixed top-6 right-7 z-50 md:hidden p-2 "
         aria-label="Open menu"
       >
-        {open ? <FiX size={24} /> : <PiHamburgerBold size={24} />}
+        <AnimatePresence mode="wait">
+          {open?(
+            <motion.div
+              key="closeIcon"
+              variants={iconVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{duration:0.2}}
+            >
+              <FiX size={26} />
+            </motion.div>
+          ):(
+            <motion.div
+              key="hamburgerIcon"
+              variants={iconVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{duration:0.2}}
+            >
+              <PiHamburgerBold size={26} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </button>
 
       <div
