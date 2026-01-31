@@ -1,12 +1,9 @@
 "use client";
-import React, { useState,JSX } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "motion/react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
+
 
 
 export const FloatingNav = ({
@@ -20,64 +17,34 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
-  const { scrollYProgress } = useScroll();
 
-  const [visible, setVisible] = useState(false);
+  const pathname= usePathname();
 
-  console.log(navItems)
+  
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+  useEffect(()=>{
+    const section = pathname.replace("/portfolio/", "") || "hero";
+    const el = document.getElementById(section);
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      }
-    }
-  });
+    el?.scrollIntoView({ behavior: "smooth" });
+    console.log("scrolled to : ",section)
+  },[pathname])
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
-        className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2  items-center justify-center space-x-4",
-          className
-        )}
-      >
-        {navItems.map((navItem: any, idx: number) => (
-          <a
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </a>
-        ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Contact</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button>
-      </motion.div>
-    </AnimatePresence>
+    <div className="fixed top-10 left-[50%] lg:min-w-[500px] -translate-x-[50%] min-w-[50%]  h-14 z-50 rounded-2xl border border-white/50 backdrop-blur-2xl flex items-center justify-center gap-6">
+      {navItems?.map((navItem:any,idx:number)=>{
+
+        const isActive= pathname===navItem.link ;
+        return(
+          <div key={idx} className="group flex flex-col items-start justify-center gap-[2px] ">
+            <Link href={navItem.link} className={cn("text-md md:text-lg hover:text-primary transition-colors", isActive? "text-primary":"text-white hover:text-primary")}>
+              <span>{navItem.name}</span>
+            </Link>
+            <div className={cn("h-[2px] w-0 transition-all duration-300 ease-out group-hover:w-[50%] bg-primary",isActive?"w-[50%]":"w-0 group-hover:w-[50%] ")}></div>
+            
+          </div>
+        );
+      })}
+    </div>
   );
 };
