@@ -1,10 +1,13 @@
+import NoiseBG from "@/components/noise-background";
 import { MagicButton } from "@/components/ui/magic-button";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa";
+import "./globals.css"
 
 export default function Home() {
   return (
-    <div className="bg-background">
+    <div className=" mesh-background h-full">
+      <NoiseBG/>
       <section className="relative flex min-h-screen w-full flex-col items-center justify-center">
         <div className="flex items-center justify-between">
 
