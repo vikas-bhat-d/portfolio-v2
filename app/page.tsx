@@ -1,24 +1,12 @@
-import NoiseBG from "@/components/noise-background";
+import Hero from "@/components/hero";
 import { MagicButton } from "@/components/ui/magic-button";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className=" mesh-background h-full">
-      <NoiseBG/>
-      <section  id="hero" className="relative flex min-h-screen w-full flex-col items-center justify-center z-0">
-        <div className="flex items-center justify-between">
-
-        <h1 className="font-outfit shadow-2xl text-secondary font-bold md:text-6xl text-4xl">vikas_bhat_d</h1>
-        </div>
-      </section>
-      <section  id="about" className="relative flex min-h-screen w-full flex-col items-center justify-center z-0">
-        <div className="flex items-center justify-between">
-
-        <h1 className="font-outfit shadow-2xl text-secondary font-bold md:text-6xl text-4xl">vikas_bhat_d</h1>
-        </div>
-      </section>
+    <div className=" h-full max-w-[100ch] w-full sm:border-x border-dashed border-gray-400">
+        <Hero/>
     </div>
   );
 }

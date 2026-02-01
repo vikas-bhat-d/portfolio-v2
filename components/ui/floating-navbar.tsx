@@ -19,18 +19,11 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
-  const pathname = usePathname();
+
 
   const [open, setOpen] = useState<boolean>(false);
   const [active,setActive]=useState<number>(0)
 
-  // useEffect(() => {
-  //   const section = pathname.replace("/portfolio/", "") || "hero";
-  //   const el = document.getElementById(section);
-
-  //   el?.scrollIntoView({ behavior: "smooth"});
-  //   console.log("scrolled to : ", section);
-  // }, [pathname]);
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, rotate: -90 },
