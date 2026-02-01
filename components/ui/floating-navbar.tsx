@@ -21,15 +21,16 @@ export const FloatingNav = ({
 }) => {
   const pathname = usePathname();
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [active,setActive]=useState<number>(0)
 
-  useEffect(() => {
-    const section = pathname.replace("/portfolio/", "") || "hero";
-    const el = document.getElementById(section);
+  // useEffect(() => {
+  //   const section = pathname.replace("/portfolio/", "") || "hero";
+  //   const el = document.getElementById(section);
 
-    el?.scrollIntoView({ behavior: "smooth" });
-    console.log("scrolled to : ", section);
-  }, [pathname]);
+  //   el?.scrollIntoView({ behavior: "smooth"});
+  //   console.log("scrolled to : ", section);
+  // }, [pathname]);
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, rotate: -90 },
@@ -42,7 +43,7 @@ export const FloatingNav = ({
       {/* desktop nav */}
       <div className="fixed top-10 left-[50%] lg:min-w-[500px] -translate-x-[50%] min-w-[50%]  h-14 z-50 rounded-2xl border border-white/50 backdrop-blur-2xl hidden md:flex items-center justify-center gap-6">
         {navItems?.map((navItem: any, idx: number) => {
-          const isActive = pathname === navItem.link;
+          const isActive = active==idx;
           return (
             <div
               key={idx}
@@ -54,6 +55,7 @@ export const FloatingNav = ({
                   "text-md md:text-lg hover:text-primary transition-colors",
                   isActive ? "text-primary" : "text-white hover:text-primary",
                 )}
+                onClick={()=>setActive(idx)}
               >
                 <span>{navItem.name}</span>
               </Link>
@@ -126,7 +128,7 @@ export const FloatingNav = ({
             <div className="flex flex-col items-start gap-6">
 
               {navItems.map((navItem, idx) => {
-                const isActive = pathname === navItem.link;
+                const isActive = active==idx;
 
                 return (
                   <div
@@ -142,6 +144,8 @@ export const FloatingNav = ({
                           ? "text-primary"
                           : "text-white hover:text-primary",
                       )}
+
+                      onClick={()=>setActive(idx)}
                     >
                       <span>{navItem.name}</span>
                     </Link>
