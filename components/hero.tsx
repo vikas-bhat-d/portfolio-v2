@@ -48,7 +48,7 @@ const Hero = () => {
           year-old{" "}
           <span className="text-primary font-medium">full stack developer</span>{" "}
           focused on building scalable modern applications. Currently running on
-          curiosity, caffeine, and clean architecture — still compiling life, no
+          curiosity, caffeine, and clean architecture. Still compiling life, no
           runtime errors so far.
         </div>
       </div>
