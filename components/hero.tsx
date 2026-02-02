@@ -39,7 +39,7 @@ const Hero = () => {
             VIKAS BHAT D
           </h1>
         </div>
-        <div className="mt-4 max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify">
+        <div className=" max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify">
           I am a{" "}
           <LiveAge
             birthDate="2005-02-18T00:00:00"
