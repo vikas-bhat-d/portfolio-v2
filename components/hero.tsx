@@ -23,9 +23,9 @@ const Hero = () => {
           <div className="bg-linear-to-t from-black to-transparent  h-[30%] w-full absolute rounded-2xl bottom-0  ">
             <TerminalTypewriter
               lines={[
-                "$ [OK] Startup sequence complete",
-                "$ [INFO] Loading modules",
-                "$ [DONE] System ready",
+                "$ [OK] STARTUP SEQUENCE COMPLETE",
+                "$ [INFO] LOADING MODULES",
+                "$ [DONE] SYSTEM READY",
               ]}
               className="text-primary absolute bottom-4 mx-4"
               typingSpeed={100}
@@ -35,11 +35,11 @@ const Hero = () => {
           </div>
         </div>
         <div>
-          <h1 className="font-outfit shadow-2xl text-secondary font-bold md:text-6xl text-4xl my-4">
+          <h1 className="font-outfit shadow-2xl text-secondary font-bold md:text-6xl text-4xl my-4 mt-3">
             VIKAS BHAT D
           </h1>
         </div>
-        <div className=" max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify">
+        <div className=" max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify md:px-2 py-4 pb-6 border-b border-dashed ">
           I am a{" "}
           <LiveAge
             birthDate="2005-02-18T00:00:00"
@@ -49,7 +49,7 @@ const Hero = () => {
           <span className="text-primary font-medium">full stack developer</span>{" "}
           focused on building scalable modern applications. Currently running on
           curiosity, caffeine, and clean architecture. Still compiling life, no
-          runtime errors so far.
+          runtime errors so far!
         </div>
       </div>
     </section>
