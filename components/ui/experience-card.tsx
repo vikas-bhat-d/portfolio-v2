@@ -34,7 +34,7 @@ const ExperienceCard = ({logo,companyName,jobTitle,jobType,location, period, isP
             {jobType==="Remote" && <VscRemoteExplorer size={16} className='text-secondary'/> }
             {jobType==="Onsite" && <SlCalender />}
             
-            <span className='text-sm'>{jobType}-{location}</span>
+            <span className='text-sm ml-1'>{jobType}-{location}</span>
         </div>
         <div>
 
