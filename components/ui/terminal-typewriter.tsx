@@ -16,7 +16,7 @@ export function TerminalTypewriter({
   lines,
   className,
   typingSpeed = 40,
-  deletingSpeed = 25,
+  deletingSpeed = 40,
   pauseDelay = 800,
 }: TerminalTypewriterProps) {
   const [lineIndex, setLineIndex] = useState(0);

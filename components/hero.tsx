@@ -29,8 +29,8 @@ const Hero = () => {
               ]}
               className="text-primary absolute bottom-4 mx-4"
               typingSpeed={100}
-              deletingSpeed={50}
-              pauseDelay={600}
+              deletingSpeed={100}
+              pauseDelay={800}
             />
           </div>
         </div>
