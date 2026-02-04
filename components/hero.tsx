@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col items-center pt-35 z-0"
+      className="relative flex  w-full flex-col items-center pt-12 md:pt-35 z-0"
     >
       <div className="flex flex-col items-center justify-between">
         <div className="relative">
