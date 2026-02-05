@@ -1,13 +1,16 @@
 import { Experience } from "@/types/experience";
 import digitsoLogo from "@/public/digitso_logo.jpeg"
+import winmanLogo from "@/public/winmanLogo.jpeg"
+import aitchNuLogo from "@/public/aitchNuLogo.jpeg"
 
 export const experiences:Experience[]=[
     {
-        companyName:"Digitso FutureWise LLP",
-        logo:digitsoLogo,
-        jobTitle:"IIOT Systems Trainee",
-        jobType:"Remote",
-        period:"Jul 25 - Feb 26"
+        companyName:"Winman Software LLP",
+        logo:winmanLogo,
+        jobTitle:"Software Engineer Intern",
+        jobType:"Onsite",
+        period:"Feb-26 - Present",
+        isPresent:true
 
     },
     {
@@ -15,15 +18,15 @@ export const experiences:Experience[]=[
         logo:digitsoLogo,
         jobTitle:"IIOT Systems Trainee",
         jobType:"Remote",
-        period:"Jul 25 - Feb 26"
+        period:"Jul 25 - Jan 26"
 
     },
     {
-        companyName:"Digitso FutureWise LLP",
-        logo:digitsoLogo,
-        jobTitle:"IIOT Systems Trainee",
+        companyName:"AitchNu Global Technologies",
+        logo:aitchNuLogo,
+        jobTitle:"Web Development Intern",
         jobType:"Remote",
-        period:"Jul 25 - Feb 26"
+        period:"Dec 24 - Jan 25"
 
     }
 ]
