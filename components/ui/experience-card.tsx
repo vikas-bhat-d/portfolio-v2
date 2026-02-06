@@ -33,7 +33,11 @@ const ExperienceCard = ({logo,companyName,jobTitle,jobType,location, period, isP
             <span className='text-sm ml-1'>{jobType} {location?"-"+location:""}</span>
         </div>
         <div className='text-xs text-secondary'>
-            {period}
+            {!isPresent&&period}
+            {isPresent&& <div className='border px-2 py-1 border-green-500 rounded-4xl border-dashed shadow-2xl'>
+              Present
+            </div>
+            }
         </div>
       </div>
     </div>

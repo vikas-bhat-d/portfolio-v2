@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import me from "../public/me.webp";
+import me from "@/public/me-two.webp";
 import { TerminalTypewriter } from "./ui/terminal-typewriter";
 import { FaGreaterThan } from "react-icons/fa6";
 import { LiveAge } from "./ui/live-age";
