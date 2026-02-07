@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[400vh] relative w-full font-jetbrains-mono mesh-background flex flex-col items-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full font-jetbrains-mono mesh-background flex flex-col items-center`}
       >
         <ThemeProvider
           attribute="class"

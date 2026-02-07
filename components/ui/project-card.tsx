@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { FiGithub } from "react-icons/fi";
 import { BsGlobe } from "react-icons/bs";
+import Link from 'next/link';
 
 
 
@@ -14,7 +15,7 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL}:Project) =
         </div>
         <div className='text-[17px] text-primary font-semibold flex items-center justify-between mx-2' >
           <span>{title} </span>
-           <div className='flex gap-2 text-sm text-secondary'> {sourceURL&&<FiGithub/>} {liveURL&&< BsGlobe />}</div>
+           <div className='flex gap-2 text-sm text-secondary'> {sourceURL&&<Link href={sourceURL} target='blank'> <FiGithub /></Link>} {liveURL&&<Link href={liveURL}> < BsGlobe/></Link>}</div>
         </div>
         <div className='text-xs text-secondary mx-2 text-justify' >
           {description}

@@ -54,7 +54,7 @@ const Projects = () => {
         viewport={{ once: true, margin: "-80px" }}
       >
         {projects.map((project, idx) => (
-          <motion.div key={idx} variants={projectItemVariants}>
+          <motion.div key={idx} variants={projectItemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <ProjectCard
               title={project.title}
               thumbnail={project.thumbnail}
