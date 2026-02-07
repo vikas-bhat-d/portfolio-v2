@@ -36,7 +36,7 @@ export const experiences:Experience[]=[
 
 export const projects:Project[]=[
     {
-    title: "TaskFlow – Project Management Dashboard",
+    title: "TaskFlow",
     thumbnail: placeholder,
     description:
       "A modern project management dashboard with role-based access, real-time task tracking, and performance analytics. Designed for teams to collaborate efficiently.",
@@ -44,21 +44,21 @@ export const projects:Project[]=[
     liveURL: "https://taskflow-demo.vercel.app",
   },
   {
-    title: "ChainProof – Digital Evidence Tracking System",
+    title: "ChainProof",
     thumbnail: placeholder,
     description:
       "A blockchain-inspired system for tamper-proof digital evidence tracking, maintaining immutable logs of every transfer and access event.",
     sourceURL: "https://github.com/username/chainproof",
   },
   {
-    title: "MediAssist – Smart Hospital Assistant Platform",
+    title: "MediAssist",
     thumbnail: placeholder,
     description:
       "A web-based hospital assistant platform that streamlines patient interaction, appointment management, and internal staff coordination.",
     liveURL: "https://mediassist-demo.vercel.app",
   },
   {
-    title: "Portfolio v3 – Interactive Developer Portfolio",
+    title: "Portfolio v3",
     thumbnail: placeholder,
     description:
       "An interactive personal portfolio built with modern web technologies, featuring smooth animations, responsive layouts, and a clean developer-focused design.",
