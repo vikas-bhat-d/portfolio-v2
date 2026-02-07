@@ -34,7 +34,7 @@ export const FloatingNav = ({
   return (
     <>
       {/* desktop nav */}
-      <div className="fixed top-10 left-[50%] lg:min-w-[500px] -translate-x-[50%] min-w-[50%]  h-14 z-50 rounded-2xl border-[0.1px] border-white/50 border-dashed backdrop-blur-2xl hidden md:flex items-center justify-center gap-6">
+      <div className="fixed top-10 px-10 left-[50%] -translate-x-[50%]  h-14 z-50 rounded-2xl border-[0.1px] border-white/50 border-dashed backdrop-blur-2xl hidden md:flex items-center justify-center gap-6">
         {navItems?.map((navItem: any, idx: number) => {
           const isActive = active==idx;
           return (

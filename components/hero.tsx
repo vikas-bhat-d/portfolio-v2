@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex  w-full flex-col items-center pt-12 md:pt-35 z-0"
+      className="relative flex  w-full flex-col items-center pt-12 md:pt-20 z-0"
     >
       <div className="flex flex-col items-center justify-between">
         <div className="relative">
@@ -18,7 +18,7 @@ const Hero = () => {
             alt="vikas-bhat-d"
             height={800}
             width={800}
-            className="w-[350px] lg:w-[500px] "
+            className="w-[350px] lg:w-[400px] "
           />
           <div className="bg-linear-to-t from-black to-transparent  h-[30%] w-full absolute rounded-2xl bottom-0  ">
             <TerminalTypewriter

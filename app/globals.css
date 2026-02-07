@@ -81,7 +81,7 @@
   --_gradient-blend-mode: normal;
   --_gradient-blur: 0px;
   --_gradient:
-    radial-gradient(
+    /* radial-gradient(
       circle 100vh at 10px 50vh,
       rgba(180, 140, 255, 0.15) 0%,
       transparent 100%
@@ -90,7 +90,7 @@
       circle 600px at var(--g2-x) var(--g2-y),
       rgba(255, 176, 102, 0.15) 0%,
       transparent 100%
-    ),
+    ), */
 
 }
 
@@ -223,7 +223,7 @@ html {
 
 
 .mesh-background {
-  background: var(--_gradient) #000000;
+  background: var(--_gradient) #111111;
   mix-blend-mode: var(--_gradient-blend-mode);
   position: relative;
   min-height: 100vh;
