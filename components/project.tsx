@@ -33,7 +33,7 @@ const projectItemVariants = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="mt-10 px-2 md:px-1">
+    <section id="projects" className="mt-10 px-2 md:px-1 pb-4">
       <div className="flex text-secondary items-center gap-2 text-md text-shadow-lg md:text-lg">
         <FaLaptopCode />
         Projects
@@ -47,6 +47,9 @@ const Projects = () => {
           sm:grid-cols-2
           lg:grid-cols-3
           gap-6
+          border-b
+          border-dashed
+          pb-10
         "
         variants={projectContainerVariants}
         initial="hidden"
@@ -61,6 +64,7 @@ const Projects = () => {
               description={project.description}
               sourceURL={project.sourceURL}
               liveURL={project.liveURL}
+              techStack={project.techStack}
             />
           </motion.div>
         ))}

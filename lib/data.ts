@@ -4,7 +4,7 @@ import winmanLogo from "@/public/winmanLogo.jpeg"
 import aitchNuLogo from "@/public/aitchNuLogo.jpeg"
 import { Project } from "@/types/project";
 
-import placeholder from "@/public/placeholder.webp"
+
 
 export const experiences:Experience[]=[
     {
@@ -34,34 +34,73 @@ export const experiences:Experience[]=[
     }
 ]
 
-export const projects:Project[]=[
-    {
-    title: "TaskFlow",
+import placeholder from "@/public/placeholder.webp"
+import ReactIcon from "@/public/tech/react.svg";
+import NodeIcon from "@/public/tech/nodejs.svg";
+import ExpressIcon from "@/public/tech/express.svg";
+import MongoIcon from "@/public/tech/mongodb.svg";
+import SocketIcon from "@/public/tech/socketio.svg";
+import PythonIcon from "@/public/tech/python.svg";
+import GeminiIcon from "@/public/tech/gemini.svg";
+import GrokIcon from "@/public/tech/grok.svg";
+import RaspberryPiIcon from "@/public/tech/raspberrypi.svg";
+import MQTTIcon from "@/public/tech/mqtt.svg";
+
+export const projects: Project[] = [
+  {
+    title: "QuickText",
     thumbnail: placeholder,
     description:
-      "A modern project management dashboard with role-based access, real-time task tracking, and performance analytics. Designed for teams to collaborate efficiently.",
-    sourceURL: "https://github.com/username/taskflow",
-    liveURL: "https://taskflow-demo.vercel.app",
+      "A real-time chat application with authentication and live messaging using WebSockets.",
+    techStack: [
+      { name: "React", icon: ReactIcon },
+      { name: "Node.js", icon: NodeIcon },
+      { name: "Express", icon: ExpressIcon },
+      { name: "MongoDB", icon: MongoIcon },
+      { name: "Socket.IO", icon: SocketIcon },
+    ],
+    sourceURL: "https://github.com/username/quicktext",
+    liveURL: "https://quicktext-demo.vercel.app",
   },
   {
-    title: "ChainProof",
+    title: "PredictEd",
     thumbnail: placeholder,
     description:
-      "A blockchain-inspired system for tamper-proof digital evidence tracking, maintaining immutable logs of every transfer and access event.",
-    sourceURL: "https://github.com/username/chainproof",
+      "An AI-powered system for predicting student performance and generating automated insights.",
+    techStack: [
+      { name: "Python", icon: PythonIcon },
+      { name: "React", icon: ReactIcon },
+      { name: "MongoDB", icon: MongoIcon },
+      { name: "Gemini LLM", icon: GeminiIcon },
+      { name: "Grok LLM", icon: GrokIcon },
+    ],
+    sourceURL: "https://github.com/username/predicted",
+    liveURL: "https://predicted-demo.vercel.app",
   },
   {
-    title: "MediAssist",
+    title: "Friday",
     thumbnail: placeholder,
     description:
-      "A web-based hospital assistant platform that streamlines patient interaction, appointment management, and internal staff coordination.",
-    liveURL: "https://mediassist-demo.vercel.app",
+      "A voice controlled indoor robot assistant system for hospital task automation and navigation.",
+    techStack: [
+      { name: "React", icon: ReactIcon },
+      { name: "Node.js", icon: NodeIcon },
+      { name: "MQTT", icon: MQTTIcon },
+      { name: "Raspberry Pi", icon: RaspberryPiIcon },
+      { name: "Generative AI", icon: GeminiIcon },
+    ],
+    sourceURL: "https://github.com/username/hospital-assistant",
   },
   {
-    title: "Portfolio v3",
+    title: "Chain of Custody Tracker",
     thumbnail: placeholder,
     description:
-      "An interactive personal portfolio built with modern web technologies, featuring smooth animations, responsive layouts, and a clean developer-focused design.",
-    sourceURL: "https://github.com/username/portfolio-v3",
-    liveURL: "https://your-portfolio.vercel.app",
-  },]
+      "A digital evidence tracking system ensuring secure and tamper-proof chain-of-custody records.",
+    techStack: [
+      { name: "React", icon: ReactIcon },
+      { name: "Node.js", icon: NodeIcon },
+      { name: "MongoDB", icon: MongoIcon },
+    ],
+    sourceURL: "https://github.com/username/chain-of-custody",
+  },
+];

@@ -46,7 +46,7 @@ const Experience = () => {
       </div>
 
       <motion.div
-        className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-6"
+        className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-6 border-b pb-8 border-dashed"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
