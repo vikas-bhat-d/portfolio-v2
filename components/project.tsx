@@ -34,13 +34,11 @@ const projectItemVariants = {
 const Projects = () => {
   return (
     <section id="projects" className="mt-10 px-2 md:px-1">
-      {/* Section title */}
       <div className="flex text-secondary items-center gap-2 text-md text-shadow-lg md:text-lg">
         <FaLaptopCode />
         Projects
       </div>
 
-      {/* Animated square grid */}
       <motion.div
         className="
           mt-4
