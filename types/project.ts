@@ -10,5 +10,6 @@ export type Project={
   description:string,
   sourceURL?:string,
   liveURL?:string,
-  techStack:TechStack[]
+  techStack:TechStack[],
+  glowColor?:string,
 }

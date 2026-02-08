@@ -10,4 +10,5 @@ export type Experience = {
   location?: string;
   period: string;
   isPresent?: boolean;
+  glowColor?:string
 };

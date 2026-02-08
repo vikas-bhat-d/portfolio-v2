@@ -68,6 +68,7 @@ const Experience = () => {
               location={item.location}
               period={item.period}
               isPresent={item.isPresent}
+              glowColor={item.glowColor}
             />
           </motion.div>
         ))}

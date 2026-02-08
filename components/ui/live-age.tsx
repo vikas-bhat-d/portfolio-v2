@@ -24,7 +24,7 @@ export function LiveAge({
       setAge((now - birthTime) / MS_PER_YEAR);
     };
 
-    updateAge(); // initial
+    updateAge();
     const interval = setInterval(updateAge, 50);
     return () => clearInterval(interval);
   }, [birthTime]);

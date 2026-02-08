@@ -13,7 +13,8 @@ export const experiences:Experience[]=[
         jobTitle:"Software Engineer Intern",
         jobType:"Onsite",
         period:"Feb-26 - Present",
-        isPresent:true
+        isPresent:true,
+        glowColor:'rgba(255, 90, 60, 0.4)'
 
     },
     {
@@ -21,7 +22,8 @@ export const experiences:Experience[]=[
         logo:digitsoLogo,
         jobTitle:"IIOT Systems Trainee",
         jobType:"Remote",
-        period:"Jul 25 - Jan 26"
+        period:"Jul 25 - Jan 26",
+        glowColor:'rgba(255, 165, 70, 0.4)'
 
     },
     {
@@ -29,7 +31,8 @@ export const experiences:Experience[]=[
         logo:aitchNuLogo,
         jobTitle:"Web Development Intern",
         jobType:"Remote",
-        period:"Dec 24 - Jan 25"
+        period:"Dec 24 - Jan 25",
+        glowColor:'rgba(120, 160, 255, 0.4)'
 
     }
 ]
