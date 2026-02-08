@@ -45,9 +45,12 @@ export async function POST(req: Request) {
 
     await sendAdminMail(name, email, message);
 
-    sendUserAutoReply(name, email).catch((err) =>
-      console.error("Auto-reply failed:", err)
-    );
+    try{
+
+      await sendUserAutoReply(name, email)
+    }catch(err){
+      console.log(err);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
