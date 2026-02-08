@@ -21,7 +21,7 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,g
 
   const background = useMotionTemplate`
     radial-gradient(
-      300px at ${mouseX}px ${mouseY}px,
+      250px at ${mouseX}px ${mouseY}px,
       ${glowColor},
       transparent 60%
     )

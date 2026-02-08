@@ -1,3 +1,68 @@
+import { LovedTech } from "@/types/hero";
+
+// icons (use your actual svg imports here)
+import javascript from "@/public/tech/javascript.svg";
+import typescript from "@/public/tech/typescript.svg";
+import react from "@/public/tech/react.svg";
+import node from "@/public/tech/nodejs.svg";
+import express from "@/public/tech/express.svg";
+import mongodb from "@/public/tech/mongodb.svg";
+import tailwind from "@/public/tech/tailwind.svg";
+import docker from "@/public/tech/docker.svg";
+import git from "@/public/tech/git.svg";
+import github from "@/public/tech/github.svg";
+import python from "@/public/tech/python.svg";
+import aws from "@/public/tech/aws.svg";
+
+export const techILove: LovedTech[] = [
+  { name: "JavaScript", icon: javascript },
+  { name: "TypeScript", icon: typescript },
+  { name: "React", icon: react },
+  { name: "Node.js", icon: node },
+  { name: "Express", icon: express },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Docker", icon: docker },
+  { name: "Git", icon: git },
+  { name: "GitHub", icon: github },
+  { name: "Python", icon: python },
+  { name: "AWS", icon: aws },
+];
+
+import { SocialLink } from "@/types/hero";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { BsTwitterX } from "react-icons/bs";
+import { HiOutlineGlobeAlt } from "react-icons/hi2";
+
+export const socialLinks: SocialLink[] = [
+  {
+    label: "Email",
+    href: "mailto:vikasdbhat@gmail.com",
+    icon: FiMail,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/vikas-bhat-d",
+    icon: FiGithub,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/vikas-bhat-d",
+    icon: FiLinkedin,
+  },
+  {
+    label: "Twitter / X",
+    href: "https://twitter.com/your-handle",
+    icon: BsTwitterX,
+  },
+  {
+    label: "Portfolio",
+    href: "https://vikas-bhat-dev.vercel.app",
+    icon: HiOutlineGlobeAlt,
+  },
+];
+
+
 import { Experience } from "@/types/experience";
 import digitsoLogo from "@/public/digitso_logo.jpeg"
 import winmanLogo from "@/public/winmanLogo.jpeg"
@@ -48,6 +113,9 @@ import GeminiIcon from "@/public/tech/gemini.svg";
 import GrokIcon from "@/public/tech/grok.svg";
 import RaspberryPiIcon from "@/public/tech/raspberrypi.svg";
 import MQTTIcon from "@/public/tech/mqtt.svg";
+import DockerIcon from "@/public/tech/docker.svg"
+
+import har from "@/public/project/HAR.jpg"
 
 export const projects: Project[] = [
   {
@@ -82,7 +150,7 @@ export const projects: Project[] = [
   },
   {
     title: "Friday",
-    thumbnail: placeholder,
+    thumbnail: har,
     description:
       "A voice controlled indoor robot assistant system for hospital task automation and navigation.",
     techStack: [
@@ -91,6 +159,7 @@ export const projects: Project[] = [
       { name: "MQTT", icon: MQTTIcon },
       { name: "Raspberry Pi", icon: RaspberryPiIcon },
       { name: "Generative AI", icon: GeminiIcon },
+      {name:"Docker",icon:DockerIcon}
     ],
     sourceURL: "https://github.com/username/hospital-assistant",
   },
@@ -105,5 +174,31 @@ export const projects: Project[] = [
       { name: "MongoDB", icon: MongoIcon },
     ],
     sourceURL: "https://github.com/username/chain-of-custody",
+  },
+];
+
+
+import { Achievement } from "@/types/achievement";
+
+export const achievements: Achievement[] = [
+  {
+    title: "1st Place — Innovate-A-Thon 2025",
+    organization: "SDM Institute of Technology",
+    date: "Sept 2025",
+    description: [
+      "Led a team of 5 to build PredictEd, an AI-based student performance predictor.",
+      "Completed within a 12-hour hackathon with focus on accuracy and usability.",
+    ],
+    prize: "₹10,000",
+  },
+  {
+    title: "4th Place — CIDECODE National Hackathon",
+    organization: "PES University, Bengaluru",
+    date: "Mar 2025",
+    description: [
+      "Built a blockchain-backed chain-of-custody evidence tracking system.",
+      "Reached the final 24-hour round among national-level participants.",
+    ],
+    prize: "₹10,000",
   },
 ];

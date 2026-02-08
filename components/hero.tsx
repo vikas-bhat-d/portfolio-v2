@@ -4,12 +4,14 @@ import me from "@/public/me-two.webp";
 import { TerminalTypewriter } from "./ui/terminal-typewriter";
 import { FaGreaterThan } from "react-icons/fa6";
 import { LiveAge } from "./ui/live-age";
+import TechLove from "./ui/tech-love";
+import { techILove } from "@/lib/data";
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex  w-full flex-col items-center pt-12 md:pt-20 z-0"
+      className="relative flex w-full flex-col items-center pt-12 md:pt-20 z-0"
     >
       <div className="flex flex-col items-center justify-between">
         <div className="relative">
@@ -39,7 +41,7 @@ const Hero = () => {
             VIKAS BHAT D
           </h1>
         </div>
-        <div className=" max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify md:px-2 py-4 pb-6 border-b border-dashed ">
+        <div className=" max-w-4xl text-secondary text-md md:text-lg leading-relaxed text-justify md:px-2 py-4  ">
           I am a{" "}
           <LiveAge
             birthDate="2005-02-18T00:00:00"
@@ -51,6 +53,9 @@ const Hero = () => {
           curiosity, caffeine, and clean architecture. Still compiling life, no
           runtime errors so far!
         </div>
+      </div>
+      <div className="mt-4 flex w-full flex-col items-center gap-3 pb-6 border-b border-dashed">
+         <TechLove tech={techILove}/>
       </div>
     </section>
   );

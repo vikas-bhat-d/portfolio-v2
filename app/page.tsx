@@ -4,6 +4,9 @@ import Experience from "@/components/experience";
 import Projects from "@/components/project";
 import Footer from "@/components/footer";
 import CursorGlow from "@/components/curser-glow";
+import Achievements from "@/components/achievement";
+import ContactForm from "@/components/ui/contact-form";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
@@ -12,6 +15,8 @@ export default function Home() {
         <Hero/>
         <Experience/>
         <Projects/>
+        <Achievements/>
+        <Contact/>
         <Footer/>
     </div>
   );
