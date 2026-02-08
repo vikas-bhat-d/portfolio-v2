@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { Redis } from "@upstash/redis"
 
 const redis= Redis.fromEnv();
-const key="local_visiter_count"
+const key=process.env.visterKey||"local_visiter_count"
 
 export async function GET() {
     const cookieStore=cookies();

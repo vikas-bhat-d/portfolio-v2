@@ -30,35 +30,33 @@ export const techILove: LovedTech[] = [
 ];
 
 import { SocialLink } from "@/types/hero";
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import { BsTwitterX } from "react-icons/bs";
-import { HiOutlineGlobeAlt } from "react-icons/hi2";
+
 
 export const socialLinks: SocialLink[] = [
   {
     label: "Email",
     href: "mailto:vikasdbhat@gmail.com",
-    icon: FiMail,
+    iconKey: "mail"
   },
   {
     label: "GitHub",
     href: "https://github.com/vikas-bhat-d",
-    icon: FiGithub,
+    iconKey: "github",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/vikas-bhat-d",
-    icon: FiLinkedin,
+    href: "https://www.linkedin.com/in/vikas-bhat-d/",
+    iconKey: "linkedin",
   },
   {
     label: "Twitter / X",
-    href: "https://twitter.com/your-handle",
-    icon: BsTwitterX,
+    href: "https://x.com/vikas_bhat_d",
+    iconKey: "twitter",
   },
   {
-    label: "Portfolio",
+    label: "Resume",
     href: "https://vikas-bhat-dev.vercel.app",
-    icon: HiOutlineGlobeAlt,
+    iconKey: "resume",
   },
 ];
 

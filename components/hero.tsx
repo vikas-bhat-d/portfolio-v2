@@ -5,7 +5,8 @@ import { TerminalTypewriter } from "./ui/terminal-typewriter";
 import { FaGreaterThan } from "react-icons/fa6";
 import { LiveAge } from "./ui/live-age";
 import TechLove from "./ui/tech-love";
-import { techILove } from "@/lib/data";
+import { socialLinks, techILove } from "@/lib/data";
+import SocialLinks from "./ui/social-link";
 
 const Hero = () => {
   return (
@@ -54,9 +55,13 @@ const Hero = () => {
           runtime errors so far!
         </div>
       </div>
+      <div>
+        <SocialLinks links={socialLinks}/>
+      </div>
       <div className="mt-4 flex w-full flex-col items-center gap-3 pb-6 border-b border-dashed">
          <TechLove tech={techILove}/>
       </div>
+      
     </section>
   );
 };

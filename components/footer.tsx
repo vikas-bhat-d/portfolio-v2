@@ -22,10 +22,11 @@ const Footer = () => {
 
   return (
     <footer className="mt-24 py-6 flex items-center justify-center text-secondary text-sm">
+      
       <div className="flex items-center gap-2 opacity-80">
         <AiOutlineEye className="text-primary text-base" />
         <span>
-          {count !== null ? count.toLocaleString() : "--"} visits
+          {count !== null ? count.toLocaleString() : "--"} visits | Made with ❤️: VBD
         </span>
       </div>
     </footer>

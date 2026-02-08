@@ -9,5 +9,5 @@ export type LovedTech = {
 export type SocialLink = {
   label: string;
   href: string;
-  icon: IconType;
+  iconKey: "mail" | "github" | "linkedin" | "twitter" | "resume"|"portfolio";
 }

@@ -9,12 +9,18 @@ export function NavbarWrapper() {
     {
       name: "Home",
       link: "#hero",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
       name: "Experience",
       link: "#experience",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Project",
+      link: "#projects",
+    },
+    {
+      name: "Contact",
+      link: "#contact",
     },
   ];
 
