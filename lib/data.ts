@@ -55,7 +55,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Resume",
-    href: "https://vikas-bhat-dev.vercel.app",
+    href: "https://drive.google.com/file/d/1rbKgNWTQHjNW31kO0HjccPr7n9B_sCno/view?usp=drive_link",
     iconKey: "resume",
   },
 ];
