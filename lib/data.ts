@@ -128,7 +128,7 @@ export const projects: Project[] = [
       { name: "MongoDB", icon: MongoIcon },
       { name: "Socket.IO", icon: SocketIcon },
     ],
-    sourceURL: "https://github.com/username/quicktext",
+    sourceURL: "https://github.com/vikas-bhat-d/quicktext",
     liveURL: "https://quicktext-demo.vercel.app",
   },
   {
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       { name: "Gemini LLM", icon: GeminiIcon },
       { name: "Grok LLM", icon: GrokIcon },
     ],
-    sourceURL: "https://github.com/username/predicted",
+    sourceURL: "https://github.com/vikas-bhat-d/predicted",
     liveURL: "https://predicted-demo.vercel.app",
   },
   {
@@ -159,7 +159,7 @@ export const projects: Project[] = [
       { name: "Generative AI", icon: GeminiIcon },
       {name:"Docker",icon:DockerIcon}
     ],
-    sourceURL: "https://github.com/username/hospital-assistant",
+    sourceURL: "https://github.com/vikas-bhat-d/hospital-assistant",
   },
   {
     title: "Chain of Custody Tracker",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       { name: "Node.js", icon: NodeIcon },
       { name: "MongoDB", icon: MongoIcon },
     ],
-    sourceURL: "https://github.com/username/chain-of-custody",
+    sourceURL: "https://github.com/vikas-bhat-d/chain-of-custody",
   },
 ];
 

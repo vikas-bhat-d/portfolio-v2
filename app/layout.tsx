@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vikas Bhat | Portfolio",
   description:
-    "Welcome to my developer portfolio, where you can explore my skill and passion.",
+    "Full stack developer focused on building scalable modern applications. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs."
 };
 
 export default function RootLayout({
