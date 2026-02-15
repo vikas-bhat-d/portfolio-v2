@@ -16,10 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
   title: "Vikas Bhat | Portfolio",
   description:
-    "Full stack developer focused on building scalable modern applications. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs."
+    "Full stack developer focused on building scalable modern applications. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs.",
+  verification: {
+    google: "XOh0Cfx7Vb3Grh7npWe0-rFfQedUMaEyuTSC_zZo614" ,
+  },
 };
 
 export default function RootLayout({
