@@ -7,6 +7,9 @@ import { LiveAge } from "./ui/live-age";
 import TechLove from "./ui/tech-love";
 import { socialLinks, techILove } from "@/lib/data";
 import SocialLinks from "./ui/social-link";
+import typescript from "@/public/tech/typescript.svg";
+import node from "@/public/tech/nodejs.svg";
+import react from "@/public/tech/react.svg";
 
 const Hero = () => {
   return (
@@ -50,7 +53,7 @@ const Hero = () => {
           />{" "}
           year-old{" "}
           <span className="text-primary font-medium">full stack developer</span>{" "}
-          focused on building scalable modern applications. Currently running on
+          focused on building scalable modern applications using React, Typescript and Node.js. Currently running on
           curiosity, caffeine, and clean architecture. Still compiling life, no
           runtime errors so far!
         </div>
