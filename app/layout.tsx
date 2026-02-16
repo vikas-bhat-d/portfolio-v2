@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { IconHome } from "@tabler/icons-react";
-import { FloatingNav } from "@/components/ui/floating-navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavbarWrapper } from "@/components/navbar-wrapper";
 
@@ -20,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vikas Bhat | Portfolio",
   description:
-    "Full stack developer focused on building scalable modern applications. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs.",
+    "Full stack developer focused on building scalable modern applications and solid logic building skill. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs.",
   verification: {
     google: "XOh0Cfx7Vb3Grh7npWe0-rFfQedUMaEyuTSC_zZo614" ,
   },

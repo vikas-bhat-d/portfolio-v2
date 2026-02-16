@@ -15,7 +15,6 @@ export async function GET() {
     }
 
     const count=await redis.get(key);
-    console.log("Counte: ",count);
     const response=NextResponse.json({
         count: count,
         unique: true,

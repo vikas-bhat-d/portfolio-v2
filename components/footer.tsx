@@ -10,7 +10,6 @@ const Footer = () => {
       try {
         const res = await fetch("/api/visits", { cache: "no-store" });
         const data = await res.json();
-        console.log(data)
         setCount(data.count);
       } catch (err) {
         console.error("Failed to fetch visit count");
