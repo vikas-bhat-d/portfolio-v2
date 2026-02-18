@@ -14,21 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata = {
-//   title: "Vikas Bhat | Portfolio",
-//   description:
-//     "Full stack developer focused on building scalable modern applications and solid logic building skill. Currently running on curiosity, caffeine, and clean architecture.I love TypeScript, NodeJs, Python ,Java and many more interesting techs.",
-//   verification: {
-//     google: "XOh0Cfx7Vb3Grh7npWe0-rFfQedUMaEyuTSC_zZo614" ,
-//   },
-// };
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://vikasbhat.vercel.app/"),
 
   title: {
-    default: "Vikas Bhat D — Full Stack Developer",
-    template: "%s | Vikas Bhat D",
+    default: "Vikas Bhat D - Full Stack Developer",
+    template: "%s | Vikas Bhat D | %s",
   },
 
   description:
@@ -36,6 +27,7 @@ export const metadata: Metadata = {
 
   keywords: [
     "Vikas Bhat D",
+    "Vikas Bhat D Portfolio",
     "Full Stack Developer",
     "React Developer",
     "TypeScript Developer",
@@ -51,18 +43,18 @@ export const metadata: Metadata = {
   creator: "Vikas Bhat D",
 
   openGraph: {
-    title: "Vikas Bhat D — Full Stack Developer",
+    title: "Vikas Bhat D - Full Stack Developer",
     description:
       "Portfolio of Vikas Bhat D showcasing full stack projects, experience, and expertise in React, TypeScript, and Node.js.",
     url: "https://vikasbhat.vercel.app/",
-    siteName: "Vikas Portfolio",
+    siteName: "Vikas Bhat Portfolio",
     type: "website",
     locale: "en_US",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Vikas Bhat D — Full Stack Developer",
+    title: "Vikas Bhat D - Full Stack Developer",
     description:
       "Full Stack Developer specializing in React, TypeScript, Node.js, and scalable web applications.",
   },
