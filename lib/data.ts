@@ -159,7 +159,7 @@ export const projects: Project[] = [
       { name: "Generative AI", icon: GeminiIcon },
       {name:"Docker",icon:DockerIcon}
     ],
-    sourceURL: "https://github.com/vikas-bhat-d/hospital-assistant",
+    sourceURL: "https://github.com/vikas-bhat-d/hospital-assistant-robot",
   },
   {
     title: "Chain of Custody Tracker",
