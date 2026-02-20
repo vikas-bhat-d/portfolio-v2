@@ -129,7 +129,6 @@ export const projects: Project[] = [
       { name: "Socket.IO", icon: SocketIcon },
     ],
     sourceURL: "https://github.com/vikas-bhat-d/quicktext",
-    liveURL: "https://quicktext-demo.vercel.app",
   },
   {
     title: "PredictEd",
@@ -143,8 +142,7 @@ export const projects: Project[] = [
       { name: "Gemini LLM", icon: GeminiIcon },
       { name: "Grok LLM", icon: GrokIcon },
     ],
-    sourceURL: "https://github.com/vikas-bhat-d/predicted",
-    liveURL: "https://predicted-demo.vercel.app",
+    sourceURL: "https://github.com/vikas-bhat-d/predictEd",
   },
   {
     title: "Friday",
