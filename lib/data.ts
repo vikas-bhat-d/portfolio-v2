@@ -112,10 +112,31 @@ import GrokIcon from "@/public/tech/grok.svg";
 import RaspberryPiIcon from "@/public/tech/raspberrypi.svg";
 import MQTTIcon from "@/public/tech/mqtt.svg";
 import DockerIcon from "@/public/tech/docker.svg"
-
+import TailwindIcon from "@public/tech/tailwind.svg"
+import NextIcon from "@public/tech/nextjs.svg"
+import TypeScriptIcon from "@public/tech/typescript.svg"
+import S3Icon from "public/tech/s3.svg"
 import har from "@/public/project/HAR.jpg"
+import pandashare from "@public/project/pandashare.png"
 
 export const projects: Project[] = [
+  {
+  title: "PandaShare",
+  thumbnail: pandashare,
+  description:
+    "A secure, room-based file sharing application with client-side AES-256-GCM encryption and zero-knowledge server architecture.",
+  techStack: [
+    { name: "Next.js", icon: NextIcon },
+    { name: "React", icon: ReactIcon },
+    { name: "Node.js", icon: NodeIcon },
+    { name: "Express", icon: ExpressIcon },
+    { name: "TypeScript", icon: TypeScriptIcon },
+    { name: "AWS S3", icon: S3Icon },
+    { name: "Tailwind CSS", icon: TailwindIcon },
+  ],
+  sourceURL: "https://github.com/vikas-bhat-d/pandashare",
+  liveURL: "https://pandashare.space",
+},
   {
     title: "QuickText",
     thumbnail: placeholder,
@@ -171,6 +192,7 @@ export const projects: Project[] = [
     ],
     sourceURL: "https://github.com/vikas-bhat-d/chain-of-custody",
   },
+
 ];
 
 
