@@ -112,12 +112,10 @@ import GrokIcon from "@/public/tech/grok.svg";
 import RaspberryPiIcon from "@/public/tech/raspberrypi.svg";
 import MQTTIcon from "@/public/tech/mqtt.svg";
 import DockerIcon from "@/public/tech/docker.svg"
-import TailwindIcon from "@public/tech/tailwind.svg"
-import NextIcon from "@public/tech/nextjs.svg"
-import TypeScriptIcon from "@public/tech/typescript.svg"
-import S3Icon from "public/tech/s3.svg"
+import NextIcon from "@/public/tech/nextjs.svg"
+import S3Icon from "@/public/tech/s3.svg"
 import har from "@/public/project/HAR.jpg"
-import pandashare from "@public/project/pandashare.png"
+import pandashare from "@/public/project/pandashare.png"
 
 export const projects: Project[] = [
   {
@@ -130,9 +128,9 @@ export const projects: Project[] = [
     { name: "React", icon: ReactIcon },
     { name: "Node.js", icon: NodeIcon },
     { name: "Express", icon: ExpressIcon },
-    { name: "TypeScript", icon: TypeScriptIcon },
+    { name: "TypeScript", icon: typescript },
     { name: "AWS S3", icon: S3Icon },
-    { name: "Tailwind CSS", icon: TailwindIcon },
+    { name: "Tailwind CSS", icon: tailwind },
   ],
   sourceURL: "https://github.com/vikas-bhat-d/pandashare",
   liveURL: "https://pandashare.space",
