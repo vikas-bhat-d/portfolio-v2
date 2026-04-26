@@ -6,8 +6,10 @@ type TechStack = {
 };
 export type Project={
   title:string,
+  slug?:string,
   thumbnail:StaticImageData,
   description:string,
+  detailedDescription?:string,
   sourceURL?:string,
   liveURL?:string,
   techStack:TechStack[],

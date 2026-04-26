@@ -3,12 +3,13 @@ import Image from 'next/image'
 import React from 'react'
 import { FiGithub } from "react-icons/fi";
 import { BsGlobe } from "react-icons/bs";
+import { MdArrowOutward } from "react-icons/md";
 import Link from 'next/link';
 import { useMotionValue, useMotionTemplate, motion } from "motion/react";
 
 
 
-const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,glowColor="rgba(255, 60, 60, 0.3)"}:Project) => {
+const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,glowColor="rgba(255, 60, 60, 0.3)",slug}:Project) => {
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -33,8 +34,8 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,g
         className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover/card:opacity-80 -z-10"
         style={{ background }}
       />
-      <div>
-        <Image alt='project-thumbnail' src={thumbnail} width={600} height={6000} className='h-full w-full rounded-xl'></Image>
+      <div className='relative w-full h-44 overflow-hidden rounded-xl'>
+        <Image alt='project-thumbnail' src={thumbnail} fill className='object-cover'></Image>
       </div>
       <div className='text-[17px] text-primary font-semibold flex items-center justify-between mx-2' >
         <span>{title} </span>
@@ -65,7 +66,7 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,g
                 whitespace-nowrap
                 rounded-md
                 bg-black/80
-                px-2 py-[2px]
+                px-2 py-0.5
                 text-[10px]
                 text-white
                 opacity-0
@@ -76,6 +77,17 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,g
               </span>
             </div>
           ))}
+        </div>
+      )}
+
+      {slug && (
+        <div className="mx-2 mt-1">
+          <Link
+            href={`/projects/${slug}`}
+            className="inline-flex items-center gap-1 text-[11px] text-secondary/70 hover:text-primary transition-colors duration-200"
+          >
+            Read more <MdArrowOutward className="text-xs" />
+          </Link>
         </div>
       )}
     </div>

@@ -97,7 +97,7 @@ export const experiences:Experience[]=[
         period:"Dec 24 - Jan 25",
         glowColor:'rgba(120, 160, 255, 0.4)'
 
-    }
+    },
 ]
 
 import placeholder from "@/public/placeholder.webp"
@@ -120,9 +120,12 @@ import pandashare from "@/public/project/pandashare.png"
 export const projects: Project[] = [
   {
   title: "PandaShare",
+  slug: "pandashare",
   thumbnail: pandashare,
   description:
     "A secure, room-based file sharing application with client-side AES-256-GCM encryption and zero-knowledge server architecture.",
+  detailedDescription:
+    "PandaShare is a privacy-first file sharing platform built around a zero-knowledge architecture — the server never sees plaintext file content. Files are encrypted entirely on the client using AES-256-GCM before upload, and decrypted after download using a room key that is never transmitted to the server.\n\nUsers create temporary rooms and share files with others in the same room in real time. Each room has an expiry, after which all associated objects are purged from AWS S3. The frontend is built with Next.js and TypeScript, and the backend is a Node.js + Express API. File objects are stored on AWS S3 with pre-signed URLs to avoid routing binary data through the application server.\n\nKey design decisions include separating the encryption key from the room ID (the key lives only in the URL fragment, never sent to the server), chunked upload for large files, and a minimal UI that communicates trust through transparency.",
   techStack: [
     { name: "Next.js", icon: NextIcon },
     { name: "React", icon: ReactIcon },
@@ -137,9 +140,12 @@ export const projects: Project[] = [
 },
   {
     title: "QuickText",
+    slug: "quicktext",
     thumbnail: placeholder,
     description:
       "A real-time chat application with authentication and live messaging using WebSockets.",
+    detailedDescription:
+      "QuickText is a full-stack real-time chat application that supports user authentication, persistent message history, and live bidirectional messaging via WebSockets (Socket.IO).\n\nUsers register and log in with JWT-based authentication. Each session is scoped to the authenticated user, and messages are stored in MongoDB for persistence across sessions. The React frontend maintains a live socket connection, updating the UI instantly when new messages arrive without any polling.\n\nThe architecture separates concerns cleanly: the Express REST API handles auth and history retrieval, while the Socket.IO layer handles real-time events. This keeps the real-time channel lightweight and the REST layer stateless.",
     techStack: [
       { name: "React", icon: ReactIcon },
       { name: "Node.js", icon: NodeIcon },
@@ -151,9 +157,12 @@ export const projects: Project[] = [
   },
   {
     title: "PredictEd",
+    slug: "predicted",
     thumbnail: placeholder,
     description:
       "An AI-powered system for predicting student performance and generating automated insights.",
+    detailedDescription:
+      "PredictEd is an academic analytics platform that combines machine learning with large language models to predict student outcomes and generate actionable insights for educators.\n\nThe prediction engine is a Python-based ML model trained on historical academic data — attendance, grades, assignment scores — to forecast end-semester performance with reasonable accuracy. On top of the predictions, Gemini and Grok LLMs are used to generate natural-language summaries and recommendations per student, surfacing patterns that raw numbers don't communicate.\n\nThe React frontend presents dashboards for teachers to review cohort-level and individual-level analytics. MongoDB stores student records and model outputs. The system is designed to be explainable — every prediction is accompanied by the key contributing factors.",
     techStack: [
       { name: "Python", icon: PythonIcon },
       { name: "React", icon: ReactIcon },
@@ -165,9 +174,12 @@ export const projects: Project[] = [
   },
   {
     title: "Friday",
+    slug: "friday",
     thumbnail: har,
     description:
       "A voice controlled indoor robot assistant system for hospital task automation and navigation.",
+    detailedDescription:
+      "Friday is an indoor autonomous robot assistant designed for hospital environments, capable of responding to voice commands, navigating between rooms, and automating routine tasks such as delivering items and relaying information.\n\nThe system runs on a Raspberry Pi at its core, communicating with a cloud-based Node.js backend over MQTT — a lightweight pub/sub protocol well-suited to IoT. Voice commands are processed through a speech recognition pipeline and interpreted by a Generative AI layer (Gemini) to map intent to actions.\n\nThe React dashboard allows hospital staff to monitor the robot's status, queue tasks, and view a log of completed actions. The system is containerised with Docker to ensure consistent deployment across environments. Navigation is rule-based using a predefined hospital floor map, with obstacle detection via ultrasonic sensors.",
     techStack: [
       { name: "React", icon: ReactIcon },
       { name: "Node.js", icon: NodeIcon },
@@ -180,9 +192,12 @@ export const projects: Project[] = [
   },
   {
     title: "Chain of Custody Tracker",
+    slug: "chain-of-custody",
     thumbnail: placeholder,
     description:
       "A digital evidence tracking system ensuring secure and tamper-proof chain-of-custody records.",
+    detailedDescription:
+      "Chain of Custody Tracker is a digital evidence management system built for law enforcement and legal workflows, ensuring that every transfer, access, and modification of evidence is logged in a tamper-proof, auditable record.\n\nThe system records each custody event — who handled the evidence, when, and why — in MongoDB with cryptographic integrity checks to detect any unauthorised modification. The React frontend provides a clean timeline view of the custody chain for any piece of evidence, making it easy to present in legal proceedings.\n\nThe backend is a Node.js + Express REST API with role-based access control: investigators, supervisors, and auditors each have different levels of access. The architecture prioritises auditability and data integrity over complexity.",
     techStack: [
       { name: "React", icon: ReactIcon },
       { name: "Node.js", icon: NodeIcon },

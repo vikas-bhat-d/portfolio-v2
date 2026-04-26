@@ -3,6 +3,10 @@ import { experiences } from "@/lib/data";
 import ExperienceCard from "./ui/experience-card";
 import { AiOutlineExperiment } from "react-icons/ai";
 import { easeIn, easeOut, motion } from "motion/react";
+import Link from "next/link";
+import { MdArrowOutward } from "react-icons/md";
+
+const SHOW_ALL_THRESHOLD = 6;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,34 +49,47 @@ const Experience = () => {
         Experience
       </div>
 
-      <motion.div
-        className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-6 border-b pb-8 border-dashed"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-      >
-        {experiences.map((item, idx) => (
-          <motion.div
-            key={idx}
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <ExperienceCard
-              logo={item.logo}
-              jobTitle={item.jobTitle}
-              companyName={item.companyName}
-              jobType={item.jobType}
-              location={item.location}
-              period={item.period}
-              isPresent={item.isPresent}
-              glowColor={item.glowColor}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="mt-4 border-b border-dashed pb-5">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {experiences.slice(0, SHOW_ALL_THRESHOLD).map((item, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <ExperienceCard
+                logo={item.logo}
+                jobTitle={item.jobTitle}
+                companyName={item.companyName}
+                jobType={item.jobType}
+                location={item.location}
+                period={item.period}
+                isPresent={item.isPresent}
+                glowColor={item.glowColor}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {experiences.length > SHOW_ALL_THRESHOLD && (
+          <div className="flex justify-end mt-4">
+            <Link
+              href="/all/experience"
+              className="inline-flex items-center gap-1.5 text-xs text-secondary/60 hover:text-primary transition-colors duration-200"
+            >
+              View all {experiences.length} experiences <MdArrowOutward />
+            </Link>
+          </div>
+        )}
+      </div>
     </section>
   );
 };
