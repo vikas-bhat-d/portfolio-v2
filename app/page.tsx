@@ -7,6 +7,7 @@ import CursorGlow from "@/components/curser-glow";
 import Achievements from "@/components/achievement";
 import ContactForm from "@/components/ui/contact-form";
 import Contact from "@/components/contact";
+import Blog from "@/components/blog";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Experience/>
         <Projects/>
         <Achievements/>
+        <Blog/>
         <Contact/>
         <Footer/>
     </div>

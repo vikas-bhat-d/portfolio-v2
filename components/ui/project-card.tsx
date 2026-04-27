@@ -41,7 +41,7 @@ const ProjectCard = ( {title,thumbnail,description,sourceURL,liveURL,techStack,g
         <span>{title} </span>
           <div className='flex gap-2 text-sm text-secondary'> {sourceURL&&<Link href={sourceURL} target='blank'> <FiGithub /></Link>}   {liveURL&&<Link href={liveURL}> < BsGlobe/></Link>}</div>
       </div>
-      <div className='text-xs text-secondary mx-2 text-justify' >
+      <div className='text-xs text-secondary mx-2 break-all' >
         {description}
       </div>
         

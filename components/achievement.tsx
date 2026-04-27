@@ -31,7 +31,7 @@ const Achievements = () => {
         {achievements.length > SHOW_ALL_THRESHOLD && (
           <div className="flex justify-end mt-4">
             <Link
-              href="/all/achievements"
+              href="/achievements"
               className="inline-flex items-center gap-1.5 text-xs text-secondary/60 hover:text-primary transition-colors duration-200"
             >
               View all {achievements.length} achievements <MdArrowOutward />

@@ -1,26 +1,35 @@
 // components/navbar-wrapper.tsx
 "use client";
 
-import { IconHome } from "@tabler/icons-react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
+import { usePathname } from "next/navigation";
 
 export function NavbarWrapper() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  if (/^\/blog\/.+/.test(pathname)) return null;
+
   const navItems = [
     {
       name: "Home",
-      link: "#hero",
+      link: isHome ? "#hero" : "/#hero",
     },
     {
       name: "Experience",
-      link: "#experience",
+      link: isHome ? "#experience" : "/experience",
     },
     {
       name: "Project",
-      link: "#projects",
+      link: isHome ? "#projects" : "/projects",
+    },
+    {
+      name: "Blog",
+      link: isHome ? "#blog" : "/blog",
     },
     {
       name: "Contact",
-      link: "#contact",
+      link: isHome ? "#contact" : "/#contact",
     },
   ];
 

@@ -1,0 +1,117 @@
+---
+title: "Building a Fault-Tolerant Job Queue with Redis and Node.js"
+date: "2025-04-10"
+description: "How I designed the job queue architecture behind VTU AutoPilot — handling concurrency, session expiry retries, and real-time progress streaming via SSE."
+tags: ["node.js", "redis", "architecture", "backend"]
+---
+
+## The Problem
+
+VTU's online course platform requires students to sit through 100+ video lectures and mark each one complete. Doing this manually for every subject, every semester, is genuinely tedious. VTU AutoPilot was built to automate exactly that — but at scale, with multiple users running jobs simultaneously, the architecture had to be thoughtful.
+
+## Why a Job Queue?
+
+The naive approach is to process each lecture sequentially in a single HTTP request. That breaks immediately:
+
+- Long-running HTTP connections time out
+- No way to track progress or cancel mid-run
+- Server crashes lose all work
+- No concurrency control
+
+A proper **job queue** solves all of this by separating the *submission* of work from *execution*.
+
+## The Architecture
+
+```
+Client → REST API → Redis Queue → Worker → SSE Stream → Client
+```
+
+The REST API accepts job submissions and enqueues them. A persistent worker process pulls jobs off the queue and executes them. Progress is pushed back to the client via **Server-Sent Events (SSE)** — a lightweight alternative to WebSockets for one-directional streaming.
+
+### Redis as the Backbone
+
+Redis was chosen for three reasons:
+
+1. **Persistence** — jobs survive server restarts (`appendonly yes` in config)
+2. **Atomic operations** — `LPUSH` / `BRPOP` for queue operations are atomic, preventing double-processing
+3. **TTL support** — completed job state automatically expires, keeping memory clean
+
+The queue structure looks like this:
+
+```js
+// Enqueue
+await redis.lpush("job:queue", JSON.stringify({ jobId, userId, courseId }));
+
+// Worker dequeue (blocks until item available)
+const [, raw] = await redis.brpop("job:queue", 0);
+const job = JSON.parse(raw);
+```
+
+### Handling Session Expiry
+
+VTU's backend returns `401`, `419`, or `403` when a session expires mid-job. The worker detects these and automatically re-authenticates before retrying the failed lecture — transparently, without any user action:
+
+```js
+async function processLecture(lecture, credentials) {
+  try {
+    await markComplete(lecture, credentials.sessionToken);
+  } catch (err) {
+    if ([401, 419, 403].includes(err.status)) {
+      // Re-authenticate and retry once
+      credentials.sessionToken = await refreshSession(credentials);
+      await markComplete(lecture, credentials.sessionToken);
+    } else {
+      throw err;
+    }
+  }
+}
+```
+
+### Real-time Progress via SSE
+
+Instead of polling an endpoint, the client opens a **persistent SSE connection**. The server pushes updates as lectures complete:
+
+```js
+// Server
+app.get("/progress/:jobId", (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  const send = (data) => res.write(`data: ${JSON.stringify(data)}\n\n`);
+
+  const interval = setInterval(async () => {
+    const progress = await redis.hgetall(`job:${req.params.jobId}`);
+    send(progress);
+    if (progress.status === "done") {
+      clearInterval(interval);
+      res.end();
+    }
+  }, 500);
+
+  req.on("close", () => clearInterval(interval));
+});
+```
+
+## Deduplication and Concurrency Control
+
+Without deduplication, a user could submit the same course twice and waste resources (and potentially hit rate limits). Each job gets a deterministic ID based on `userId + courseId`:
+
+```js
+const jobId = crypto
+  .createHash("sha256")
+  .update(`${userId}:${courseId}`)
+  .digest("hex")
+  .slice(0, 16);
+```
+
+Concurrency is capped with a semaphore pattern — only N jobs run simultaneously across the entire server, preventing the VTU backend from rate-limiting.
+
+## Key Takeaways
+
+- **Decouple submission from execution** — your HTTP layer stays fast; your workers run as long as they need to
+- **Use atomic queue primitives** — Redis `BRPOP` is perfect for workers that need to wait without polling
+- **SSE is underrated** — for one-way server → client streaming, SSE is simpler than WebSockets and works through proxies
+- **Design for failure** — assume sessions expire, networks drop, and servers restart; build recovery into the architecture
+
+The full source is on [GitHub](https://github.com/vikas-bhat-d/vtu-course-automation).

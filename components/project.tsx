@@ -75,7 +75,7 @@ const Projects = () => {
         {projects.length > SHOW_ALL_THRESHOLD && (
           <div className="flex justify-end mt-6">
             <Link
-              href="/all/projects"
+              href="/projects"
               className="inline-flex items-center gap-1.5 text-xs text-secondary/60 hover:text-primary transition-colors duration-200"
             >
               View all {projects.length} projects <MdArrowOutward />

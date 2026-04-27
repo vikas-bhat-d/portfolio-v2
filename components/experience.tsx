@@ -82,7 +82,7 @@ const Experience = () => {
         {experiences.length > SHOW_ALL_THRESHOLD && (
           <div className="flex justify-end mt-4">
             <Link
-              href="/all/experience"
+              href="/experience"
               className="inline-flex items-center gap-1.5 text-xs text-secondary/60 hover:text-primary transition-colors duration-200"
             >
               View all {experiences.length} experiences <MdArrowOutward />

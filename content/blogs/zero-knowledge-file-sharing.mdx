@@ -1,0 +1,127 @@
+---
+title: "Zero-Knowledge File Sharing: How PandaShare Encrypts Before Upload"
+date: "2025-03-18"
+description: "A deep dive into the client-side AES-256-GCM encryption architecture of PandaShare — why the server never sees your file, and how we keep the encryption key out of every network request."
+tags: ["security", "cryptography", "next.js", "architecture"]
+---
+
+## The Core Idea
+
+Most file sharing services encrypt files *at rest* on their servers. That means they *could* read your files — they just choose not to. A truly private system encrypts files *before they leave the browser*, so the server only ever receives ciphertext it cannot decrypt.
+
+This is the zero-knowledge architecture behind **PandaShare**.
+
+## The Threat Model
+
+We want to protect against:
+
+1. **Server-side breach** — if an attacker dumps the S3 bucket, they get encrypted blobs with no keys
+2. **Network interception** — TLS handles this, but defense in depth is good
+3. **Server operator curiosity** — the server genuinely cannot read your files
+
+We don't protect against:
+- A compromised browser or OS
+- A malicious room participant (you shared the key with them)
+
+## AES-256-GCM: Why This Algorithm
+
+AES-256-GCM (Galois/Counter Mode) is the right choice here because:
+
+- **Authenticated encryption** — GCM includes a MAC tag. Tampering with the ciphertext is detectable.
+- **No padding oracle attacks** — unlike CBC mode
+- **Web Crypto API native** — browsers implement it natively with `crypto.subtle`, no third-party library needed
+
+```ts
+async function encryptFile(file: File, key: CryptoKey): Promise<{ ciphertext: ArrayBuffer; iv: Uint8Array }> {
+  const iv = crypto.getRandomValues(new Uint8Array(12)); // 96-bit IV for GCM
+  const buffer = await file.arrayBuffer();
+
+  const ciphertext = await crypto.subtle.encrypt(
+    { name: "AES-GCM", iv },
+    key,
+    buffer
+  );
+
+  return { ciphertext, iv };
+}
+```
+
+The IV (Initialization Vector) is randomly generated per file. It's safe to transmit alongside the ciphertext — it's not a secret, it just has to be unique.
+
+## Where Does the Key Live?
+
+This is the critical question. The key **must not** go to the server. Our solution: put it in the **URL fragment**.
+
+```
+https://pandashare.space/room/abc123#key=base64encodedkey
+```
+
+The fragment (`#...`) is **never sent in HTTP requests** — it exists only in the browser. So:
+
+- You share this URL with someone
+- Their browser extracts the key from the fragment
+- They download the encrypted file from the server
+- Their browser decrypts it locally
+
+The server sees: room ID, encrypted file. It never sees: the key, the plaintext.
+
+## The Key Derivation Flow
+
+```
+User creates room
+  → Generate 256-bit random key (crypto.getRandomValues)
+  → Import as CryptoKey (non-extractable)
+  → Export as base64 for URL fragment
+  → Room URL = /room/{id}#{base64key}
+
+User joins room via URL
+  → Extract key from fragment
+  → Re-import as CryptoKey
+  → Decrypt downloaded files locally
+```
+
+```ts
+async function generateRoomKey(): Promise<{ key: CryptoKey; encoded: string }> {
+  const key = await crypto.subtle.generateKey(
+    { name: "AES-GCM", length: 256 },
+    true, // extractable so we can put it in the URL
+    ["encrypt", "decrypt"]
+  );
+
+  const raw = await crypto.subtle.exportKey("raw", key);
+  const encoded = btoa(String.fromCharCode(...new Uint8Array(raw)));
+
+  return { key, encoded };
+}
+```
+
+## Pre-signed S3 URLs
+
+Routing binary file data through the application server would be wasteful and slow. Instead, the server generates **pre-signed S3 URLs** — time-limited signed URLs that let the browser upload and download directly to/from S3:
+
+```ts
+// Server: generate upload URL
+const command = new PutObjectCommand({
+  Bucket: process.env.S3_BUCKET,
+  Key: `rooms/${roomId}/${fileId}`,
+  ContentType: "application/octet-stream",
+});
+
+const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 });
+```
+
+The browser uploads the *encrypted* blob directly to S3. The server never touches the file bytes.
+
+## Room Expiry and Cleanup
+
+Each room has a TTL. When it expires, a scheduled job deletes all S3 objects for that room. Since the server only has ciphertext, there's no key management burden — just delete the objects.
+
+## What I'd Do Differently
+
+- **Chunked upload** for large files — currently the entire file is loaded into memory before encryption
+- **Key rotation** — currently the room key is fixed; rotating it would require re-encrypting all files
+- **Offline key backup** — users have no recovery path if they lose the URL. A password-derived key option would help.
+
+The tradeoffs are intentional for the MVP. Zero-knowledge was the non-negotiable constraint; everything else is iteration.
+
+Source: [github.com/vikas-bhat-d/pandashare](https://github.com/vikas-bhat-d/pandashare)

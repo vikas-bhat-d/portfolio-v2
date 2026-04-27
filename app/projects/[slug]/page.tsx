@@ -42,7 +42,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {/* Back link */}
       <div className="pt-24 pb-6">
         <Link
-          href="/#projects"
+          href="/projects"
           className="inline-flex items-center gap-1.5 text-sm text-secondary/70 hover:text-primary transition-colors duration-200"
         >
           <IoArrowBack className="text-base" />
