@@ -31,12 +31,11 @@ export const techILove: LovedTech[] = [
 
 import { SocialLink } from "@/types/hero";
 
-
 export const socialLinks: SocialLink[] = [
   {
     label: "Email",
     href: "mailto:vikasdbhat@gmail.com",
-    iconKey: "mail"
+    iconKey: "mail",
   },
   {
     label: "GitHub",
@@ -55,52 +54,46 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Resume",
-    href: "https://drive.google.com/file/d/1rbKgNWTQHjNW31kO0HjccPr7n9B_sCno/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/1rStS6qg-qhwdBOPfA6VJs5y_cOaYgwYM/view?usp=sharing",
     iconKey: "resume",
   },
 ];
 
-
 import { Experience } from "@/types/experience";
-import digitsoLogo from "@/public/digitso_logo.jpeg"
-import winmanLogo from "@/public/winmanLogo.jpeg"
-import aitchNuLogo from "@/public/aitchNuLogo.jpeg"
+import digitsoLogo from "@/public/digitso_logo.jpeg";
+import winmanLogo from "@/public/winmanLogo.jpeg";
+import aitchNuLogo from "@/public/aitchNuLogo.jpeg";
 import { Project } from "@/types/project";
 
+export const experiences: Experience[] = [
+  {
+    companyName: "Winman Software LLP",
+    logo: winmanLogo,
+    jobTitle: "Software Engineer Intern",
+    jobType: "Onsite",
+    period: "Feb-26 - Present",
+    isPresent: true,
+    glowColor: "rgba(255, 90, 60, 0.4)",
+  },
+  {
+    companyName: "Digitso FutureWise LLP",
+    logo: digitsoLogo,
+    jobTitle: "IIOT Systems Trainee",
+    jobType: "Remote",
+    period: "Jul 25 - Jan 26",
+    glowColor: "rgba(255, 165, 70, 0.4)",
+  },
+  {
+    companyName: "AitchNu Global Technologies",
+    logo: aitchNuLogo,
+    jobTitle: "Web Development Intern",
+    jobType: "Remote",
+    period: "Dec 24 - Jan 25",
+    glowColor: "rgba(120, 160, 255, 0.4)",
+  },
+];
 
-
-export const experiences:Experience[]=[
-    {
-        companyName:"Winman Software LLP",
-        logo:winmanLogo,
-        jobTitle:"Software Engineer Intern",
-        jobType:"Onsite",
-        period:"Feb-26 - Present",
-        isPresent:true,
-        glowColor:'rgba(255, 90, 60, 0.4)'
-
-    },
-    {
-        companyName:"Digitso FutureWise LLP",
-        logo:digitsoLogo,
-        jobTitle:"IIOT Systems Trainee",
-        jobType:"Remote",
-        period:"Jul 25 - Jan 26",
-        glowColor:'rgba(255, 165, 70, 0.4)'
-
-    },
-    {
-        companyName:"AitchNu Global Technologies",
-        logo:aitchNuLogo,
-        jobTitle:"Web Development Intern",
-        jobType:"Remote",
-        period:"Dec 24 - Jan 25",
-        glowColor:'rgba(120, 160, 255, 0.4)'
-
-    },
-]
-
-import placeholder from "@/public/placeholder.webp"
+import placeholder from "@/public/placeholder.webp";
 import ReactIcon from "@/public/tech/react.svg";
 import NodeIcon from "@/public/tech/nodejs.svg";
 import ExpressIcon from "@/public/tech/express.svg";
@@ -111,33 +104,53 @@ import GeminiIcon from "@/public/tech/gemini.svg";
 import GrokIcon from "@/public/tech/grok.svg";
 import RaspberryPiIcon from "@/public/tech/raspberrypi.svg";
 import MQTTIcon from "@/public/tech/mqtt.svg";
-import DockerIcon from "@/public/tech/docker.svg"
-import NextIcon from "@/public/tech/nextjs.svg"
-import S3Icon from "@/public/tech/s3.svg"
-import har from "@/public/project/HAR.jpg"
-import pandashare from "@/public/project/pandashare.png"
+import DockerIcon from "@/public/tech/docker.svg";
+import NextIcon from "@/public/tech/nextjs.svg";
+import S3Icon from "@/public/tech/s3.svg";
+import gitIcon from "@/public/tech/git.svg"
+import redisIcon from "@/public/tech/redis.svg"
+import har from "@/public/project/HAR.jpg";
+import pandashare from "@/public/project/pandashare.png";
+import vtuAutpilot from "@/public/project/vtu-autopilot.png"
 
 export const projects: Project[] = [
   {
-  title: "PandaShare",
-  slug: "pandashare",
-  thumbnail: pandashare,
-  description:
-    "A secure, room-based file sharing application with client-side AES-256-GCM encryption and zero-knowledge server architecture.",
-  detailedDescription:
-    "PandaShare is a privacy-first file sharing platform built around a zero-knowledge architecture — the server never sees plaintext file content. Files are encrypted entirely on the client using AES-256-GCM before upload, and decrypted after download using a room key that is never transmitted to the server.\n\nUsers create temporary rooms and share files with others in the same room in real time. Each room has an expiry, after which all associated objects are purged from AWS S3. The frontend is built with Next.js and TypeScript, and the backend is a Node.js + Express API. File objects are stored on AWS S3 with pre-signed URLs to avoid routing binary data through the application server.\n\nKey design decisions include separating the encryption key from the room ID (the key lives only in the URL fragment, never sent to the server), chunked upload for large files, and a minimal UI that communicates trust through transparency.",
-  techStack: [
-    { name: "Next.js", icon: NextIcon },
-    { name: "React", icon: ReactIcon },
-    { name: "Node.js", icon: NodeIcon },
-    { name: "Express", icon: ExpressIcon },
-    { name: "TypeScript", icon: typescript },
-    { name: "AWS S3", icon: S3Icon },
-    { name: "Tailwind CSS", icon: tailwind },
-  ],
-  sourceURL: "https://github.com/vikas-bhat-d/pandashare",
-  liveURL: "https://pandashare.space",
-},
+    title: "VTU AutoPilot",
+    slug: "vtu-autopilot",
+    thumbnail: vtuAutpilot,
+    description:
+      "A job automation system that auto-completes VTU online course lectures - parallel processing, smart retries, and real-time progress tracking at scale.",
+    detailedDescription:
+      "VTU AutoPilot automates marking VTU online course lectures as complete, solving a real and tedious problem for thousands of students facing 100+ mandatory lecture completions.\n\nThe system completed 4,000+ jobs within 5 days of deployment. The backend is built on Node.js + Express with a Redis-backed job queue that supports concurrency control, deduplication, and persistent job state — so jobs survive server restarts and can be monitored or cancelled at any point.\n\nLectures are processed in parallel batches with intelligent retry logic: on session expiry (401/419/403), the system automatically re-authenticates and resumes without user intervention. Progress is streamed to the frontend in real time via Server-Sent Events (SSE), giving users live feedback without polling.\n\nThe architecture is intentionally lean — a single Node.js server handles the REST API, job queue, and SSE streams, with Redis as the only external dependency (and even that is optional for local use). A clean web UI, CLI mode, and a documented REST API make the tool accessible across different usage contexts.",
+    techStack: [
+      { name: "Node.js", icon: NodeIcon },
+      { name: "Express", icon: ExpressIcon },
+      { name: "Redis" ,icon:redisIcon},
+      { name: "Git",icon:gitIcon },
+    ],
+    sourceURL: "https://github.com/vikas-bhat-d/vtu-course-automation",
+    liveURL: "https://vtuautopilot.vikasbhat.space",
+  },
+  {
+    title: "PandaShare",
+    slug: "pandashare",
+    thumbnail: pandashare,
+    description:
+      "A secure, room-based file sharing application with client-side AES-256-GCM encryption and zero-knowledge server architecture.",
+    detailedDescription:
+      "PandaShare is a privacy-first file sharing platform built around a zero-knowledge architecture — the server never sees plaintext file content. Files are encrypted entirely on the client using AES-256-GCM before upload, and decrypted after download using a room key that is never transmitted to the server.\n\nUsers create temporary rooms and share files with others in the same room in real time. Each room has an expiry, after which all associated objects are purged from AWS S3. The frontend is built with Next.js and TypeScript, and the backend is a Node.js + Express API. File objects are stored on AWS S3 with pre-signed URLs to avoid routing binary data through the application server.\n\nKey design decisions include separating the encryption key from the room ID (the key lives only in the URL fragment, never sent to the server), chunked upload for large files, and a minimal UI that communicates trust through transparency.",
+    techStack: [
+      { name: "Next.js", icon: NextIcon },
+      { name: "React", icon: ReactIcon },
+      { name: "Node.js", icon: NodeIcon },
+      { name: "Express", icon: ExpressIcon },
+      { name: "TypeScript", icon: typescript },
+      { name: "AWS S3", icon: S3Icon },
+      { name: "Tailwind CSS", icon: tailwind },
+    ],
+    sourceURL: "https://github.com/vikas-bhat-d/pandashare",
+    liveURL: "https://pandashare.space",
+  },
   {
     title: "QuickText",
     slug: "quicktext",
@@ -186,7 +199,7 @@ export const projects: Project[] = [
       { name: "MQTT", icon: MQTTIcon },
       { name: "Raspberry Pi", icon: RaspberryPiIcon },
       { name: "Generative AI", icon: GeminiIcon },
-      {name:"Docker",icon:DockerIcon}
+      { name: "Docker", icon: DockerIcon },
     ],
     sourceURL: "https://github.com/vikas-bhat-d/hospital-assistant-robot",
   },
@@ -205,9 +218,7 @@ export const projects: Project[] = [
     ],
     sourceURL: "https://github.com/vikas-bhat-d/chain-of-custody",
   },
-
 ];
-
 
 import { Achievement } from "@/types/achievement";
 
