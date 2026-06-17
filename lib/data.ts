@@ -54,7 +54,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Resume",
-    href: "https://drive.google.com/file/d/1rStS6qg-qhwdBOPfA6VJs5y_cOaYgwYM/view?usp=sharing",
+    href: "https://drive.google.com/file/d/14_irUxdY689OAMWjcfCSZJJ2H96MEfGj/view?usp=sharing",
     iconKey: "resume",
   },
 ];
